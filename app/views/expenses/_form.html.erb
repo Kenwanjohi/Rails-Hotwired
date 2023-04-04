@@ -1,0 +1,31 @@
+  <%= form_with(model: expense, url: expenses_path, local: true) do |form| %>
+    <% if expense.errors.any? %>
+      <div class="mb-4">
+        <h2 class="text-red-600 font-bold text-lg">Please correct the following errors:</h2>
+        <ul class="list-disc ml-4">
+          <% expense.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :description, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.text_field :description, class: "form-input block w-full mt-1 rounded-md shadow-sm", placeholder: "Expense description" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :amount, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.text_field :amount, class: "form-input block w-full mt-1 rounded-md shadow-sm", placeholder: "Expense amount" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :date, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.date_field :date, class: "form-input block w-full mt-1 rounded-md shadow-sm", placeholder: "Expense date" %>
+    </div>
+
+    <div class="mt-6">
+      <%= form.submit "Add expense", class: "py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" %>
+    </div>
+  <% end %>

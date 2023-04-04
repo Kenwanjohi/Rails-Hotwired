@@ -1,1 +1,25 @@
+<% if notice.present? %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+    <%= notice %>
+  </p>
+<% end %>
+<div class="max-w-md w-full mx-auto">
 <h1 class="font-bold text-2xl">Expense tracker</h1>
+<%= render partial: "form", locals: { expense: @expense } %>
+</div>
+<div id="expenses">
+  <h1 class="font-bold text-lg mb-7">Expenses</h1>
+
+  <table class="border-collapse border w-full">
+  <thead>
+    <tr>
+      <th class="border px-4 py-2">Name</th>
+      <th class="border px-4 py-2">Amount</th>
+      <th class="border px-4 py-2">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @expenses %>
+   </tbody>
+</table>
+</div>
