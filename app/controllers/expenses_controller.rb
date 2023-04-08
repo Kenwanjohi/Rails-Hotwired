@@ -4,6 +4,22 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
+  def edit
+    @expense = Expense.find(params[:id])
+   
+  end
+
+  def update
+    @expense = Expense.find(params[:id])
+    respond_to do |format|
+      if @expense.update(expense_params)
+        format.html { redirect_to expenses_url, notice: "Expense was successfully updated" }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def create
     @expense = Expense.new(expense_params)
     respond_to do |format|
@@ -13,6 +29,12 @@ class ExpensesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @expense = Expense.find(params[:id])
+    @expense.destroy
+    redirect_to expenses_url, notice: "Expense was successfully deleted."
   end
 
   private

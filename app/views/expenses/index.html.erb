@@ -9,17 +9,16 @@
 </div>
 <div id="expenses">
   <h1 class="font-bold text-lg mb-7">Expenses</h1>
+  <div class="table w-full">
+  <div class="table-row">
+    <div class="table-cell  p-2.5">Name</div>
+    <div class="table-cell  p-2.5 text-right">Amount</div>
+    <div class="table-cell  p-2.5">Date</div>
+    <div class="table-cell  p-2.5 text-right">Actions</div>
+  </div>
+  <%= render @expenses %>
+</div>
 
-  <table class="border-collapse border w-full">
-  <thead>
-    <tr>
-      <th class="border px-4 py-2">Name</th>
-      <th class="border px-4 py-2">Amount</th>
-      <th class="border px-4 py-2">Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @expenses %>
-   </tbody>
-</table>
+</div>
+
 </div>

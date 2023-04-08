@@ -1,0 +1,24 @@
+<turbo-frame id="<%= dom_id @expense %>">
+    <%= form_with(model: @expense, url: @expenses_path, local: true, html: { class: "table-row" })  do |form| %>
+   
+    <div class="p-2.5 table-cell">
+      <%= form.text_field :description, class: "form-input block mt-1 rounded-md shadow-sm", placeholder: "Expense description" %>
+    </div>
+
+    <div class="p-2.5 table-cell text-right">
+      <div class="flex w-full justify-end">
+      <%= form.text_field :amount, class: "form-input block w-fit-content mt-1 rounded-md shadow-sm text-right", placeholder: "Expense amount" %>
+      </div>
+    </div>
+
+    <div class="p-2.5 table-cell">
+      <%= form.date_field :date, class: "form-input block  mt-1 rounded-md shadow-sm ", placeholder: "Expense date" %>
+    </div>
+
+    <div class="p-2.5 table-cell">
+      <div class="flex w-full justify-end">
+        <%= form.submit "Add expense", class: "py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" %>
+      </div>    
+    </div>
+  <% end %>
+</turbo-frame>
